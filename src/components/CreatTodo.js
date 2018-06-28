@@ -14,13 +14,13 @@ class CreaetTodo extends Component {
   createTodo() {
     console.log("我被觸發了，在CreateTodo.js的createTodo方法")
     console.log("this.props.createTodo是：")
-    console.log(this.props.createTodo)
+    console.log(this.props.setTodoData)
     console.log("this.state.inputText是：")
     console.log(this.state.inputText)
     console.log("-----------------------------")
     if (this.state.inputText) {
-      this.props.createTodo &&
-        this.props.createTodo(this.state.inputText);
+      this.props.setTodoData &&
+        this.props.setTodoData(this.state.inputText);
       this.setState({
         inputText: ''
       })
@@ -36,14 +36,15 @@ class CreaetTodo extends Component {
       inputText: event.target.value
     })
   }
-
+  
   render() {
     return (
       <div>
         <TodoInput inputText={this.state.inputText}
           udpateInputText={(event) => this.udpateInputText(event)} />
         <CreateTodoButton createTodo={() => this.createTodo()} />
-      </div>);
+      </div>
+      );
   }
 }
 
